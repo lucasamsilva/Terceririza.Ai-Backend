@@ -1,6 +1,6 @@
 require('dotenv').config();
 const authSecret = process.env.AUTH_SECRET;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jwt-simple')
 
 module.exports = app => {
