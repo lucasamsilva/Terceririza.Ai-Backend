@@ -16,6 +16,9 @@ module.exports = app => {
             existsOrError(usuario.email, 'E-mail não informado');
             existsOrError(usuario.nome, 'Nome não informado');
             existsOrError(usuario.senha, 'Senha não informada');
+            existsOrError(usuario.UF, 'Informe a UF');
+            existsOrError(usuario.cidade, 'Informe o Município');
+            existsOrError(usuario.telefone, 'Informe o Telefone');
             existsOrError(usuario.confirmeSenha, 'Confirmação de senha inválida')
             equalsOrError(usuario.senha, usuario.confirmeSenha, 'Senhas não conferem');
 
@@ -59,6 +62,10 @@ module.exports = app => {
         }
 
         res.json({
+            cpf: usuarioBanco.cpf,
+            cnpj: usuarioBanco.cnpj,
+            id: usuarioBanco.id,
+            nome: usuarioBanco.nome,
             token: jwt.encode(payload, authSecret)
         })
     }
