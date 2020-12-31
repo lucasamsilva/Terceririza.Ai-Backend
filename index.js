@@ -5,9 +5,11 @@ require('dotenv').config();
 
 app.db = db;
 
-const porta = process.env.PORT_TERCEIRIZAAI_INDEX || 3000;
+const porta = process.env.PORT_TERCEIRIZAAI_INDEX;
 
-consign()
+consign({
+	cwd: process.cwd()+"/terceirizaai",
+})
     .include('./config/passport.js')
     .include('./config/middlewares.js')
     .then('./api/validacao.js')
@@ -15,6 +17,6 @@ consign()
     .then('./config/routes.js')
     .into(app);
 
-app.listen(porta, () => {
+app.listen(porta || 3000, () => {
     console.log("Rodando na porta " + porta)
 })

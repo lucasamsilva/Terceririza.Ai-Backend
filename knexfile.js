@@ -8,6 +8,9 @@ const port = process.env.DATABASE_PORT || 3306;
 
 module.exports = {
   client: 'mysql',
+  migrations: {
+     directory:'./terceirizaai/migrations'
+  },
   connection: {
     host,
     user,
